@@ -11,7 +11,9 @@ public class CandleDtoConverter {
         return CandleDto.builder()
                 .title(candle.getTitle())
                 .name(candle.getName())
+                .aroma(candle.getAroma())
                 .wax(candle.getWax())
+                .wick(candle.getWick())
                 .container(candle.getContainer())
                 .volume(candle.getVolume())
                 .price(candle.getPrice())
@@ -25,6 +27,7 @@ public class CandleDtoConverter {
         Candle candle = new Candle();
         candle.setTitle(candleDto.getTitle());
         candle.setName(candleDto.getName());
+        candle.setAroma(candleDto.getAroma());
         candle.setWax(candleDto.getWax());
         candle.setContainer(candleDto.getContainer());
         candle.setVolume(candleDto.getVolume());
