@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    networks:
+      - my-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: candles
+    ports:
+      - 8082:8082
+    depends_on:
+      - mongodb
+    networks:
+      - my-network
+
+networks:
+  my-network:
