@@ -29,6 +29,7 @@ public class CandleDtoConverter {
         candle.setName(candleDto.getName());
         candle.setAroma(candleDto.getAroma());
         candle.setWax(candleDto.getWax());
+        candle.setWick(candleDto.getWick());
         candle.setContainer(candleDto.getContainer());
         candle.setVolume(candleDto.getVolume());
         candle.setPrice(candleDto.getPrice());
