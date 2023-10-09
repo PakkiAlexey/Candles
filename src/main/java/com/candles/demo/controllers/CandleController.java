@@ -35,7 +35,7 @@ public class CandleController {
 
 
     @GetMapping("")
-    public Page<Candle> getCandleByWax(@RequestParam String wax, @RequestParam int size) {
-        return candleService.findCandleByWax(wax, 1,size);
+    public Page<Candle> getCandleByWax(@RequestParam String wax, @RequestParam int pageSize) {
+        return candleService.findCandleByWax(wax, 1, pageSize);
     }
 }
