@@ -17,7 +17,6 @@ public class Candle {
     private String id;
     private String title;
     private String name;
-
     private String aroma;
     private String wax;
     private String wick;

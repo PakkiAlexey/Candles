@@ -10,6 +10,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CandleService {
     private final CandleRepository candleRepository;
@@ -17,6 +20,12 @@ public class CandleService {
     @Autowired
     public CandleService(CandleRepository candleRepository) {
         this.candleRepository = candleRepository;
+    }
+
+    public List<CandleDto> findAll() {
+        return candleRepository.findAll().stream()
+                .map(CandleDtoConverter::toDto)
+                .collect(Collectors.toList());
     }
 
     public CandleDto findCandleById(String id) {
@@ -54,5 +63,11 @@ public class CandleService {
     public Page<Candle> findCandleByWax(String wax, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return candleRepository.findCandleByWax(wax, pageable);
+    }
+
+    public List<CandleDto> searchByPattern(String pattern) {
+        return candleRepository.findCandleByPattern(pattern).stream()
+                .map(CandleDtoConverter::toDto)
+                .collect(Collectors.toList());
     }
 }

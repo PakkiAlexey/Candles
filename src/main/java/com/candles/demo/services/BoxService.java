@@ -50,4 +50,10 @@ public class BoxService {
     public void deleteBoxById(String id) {
         boxRepository.deleteById(id);
     }
+
+    public List<BoxDto> searchByPattern(String pattern) {
+        return boxRepository.findBoxByPattern(pattern).stream()
+                .map(BoxDtoConverter::toDto)
+                .collect(Collectors.toList());
+    }
 }

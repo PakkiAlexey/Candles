@@ -1,16 +1,18 @@
 package com.candles.demo.controllers;
 
 import com.candles.demo.dto.CandleDto;
+import com.candles.demo.dto.SearchDTO;
 import com.candles.demo.model.Candle;
 import com.candles.demo.services.CandleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/candles")
 public class CandleController {
-
     @Autowired
     private CandleService candleService;
     @GetMapping("{id}")
@@ -37,5 +39,10 @@ public class CandleController {
     @GetMapping("")
     public Page<Candle> getCandleByWax(@RequestParam String wax, @RequestParam int pageSize) {
         return candleService.findCandleByWax(wax, 1, pageSize);
+    }
+
+    @GetMapping("/")
+    public List<CandleDto> findAll() {
+        return candleService.findAll();
     }
 }
