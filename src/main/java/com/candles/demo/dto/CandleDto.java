@@ -7,7 +7,8 @@ import java.math.BigDecimal;
 
 @Builder
 @Value
-public class CandleDto {
+public class CandleDto implements Responsable {
+    private String id;
     private String title;
     private String name;
     private String aroma;

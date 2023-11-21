@@ -9,6 +9,7 @@ public class CandleDtoConverter {
 
     public static CandleDto toDto(Candle candle) {
         return CandleDto.builder()
+                .id(candle.getId())
                 .title(candle.getTitle())
                 .name(candle.getName())
                 .aroma(candle.getAroma())

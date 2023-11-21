@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,9 +19,9 @@ public class Box {
     private String id;
     private String title;
     private String name;
-
     private String wick;
     private String volume;
     private BigDecimal price;
     private String description;
+    private List<Box> similarBoxes;
 }

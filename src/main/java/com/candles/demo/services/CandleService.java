@@ -1,6 +1,7 @@
 package com.candles.demo.services;
 
 import com.candles.demo.dto.CandleDto;
+import com.candles.demo.dto.Responsable;
 import com.candles.demo.model.Candle;
 import com.candles.demo.persistence.CandleRepository;
 import com.candles.demo.utils.CandleDtoConverter;
@@ -65,7 +66,7 @@ public class CandleService {
         return candleRepository.findCandleByWax(wax, pageable);
     }
 
-    public List<CandleDto> searchByPattern(String pattern) {
+    public List<Responsable> searchByPattern(String pattern) {
         return candleRepository.findCandleByPattern(pattern).stream()
                 .map(CandleDtoConverter::toDto)
                 .collect(Collectors.toList());

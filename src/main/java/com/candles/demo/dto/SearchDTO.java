@@ -8,6 +8,5 @@ import java.util.List;
 @Data
 @Builder
 public class SearchDTO {
-    private List<BoxDto> boxList;
-    private List<CandleDto> candleList;
+    private List<Responsable> boxesAndCandles;
 }

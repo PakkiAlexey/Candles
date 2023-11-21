@@ -22,4 +22,5 @@ public interface CandleRepository extends MongoRepository<Candle, String> {
             " {'wax' : { '$regex': ?0, '$options': 'i' }}," +
             " {'wick' : { '$regex': ?0, '$options': 'i' }} ] }")
     List<Candle> findCandleByPattern(String pattern);
+
 }

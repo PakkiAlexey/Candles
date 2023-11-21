@@ -1,6 +1,7 @@
 package com.candles.demo.services;
 
 import com.candles.demo.dto.BoxDto;
+import com.candles.demo.dto.Responsable;
 import com.candles.demo.model.Box;
 import com.candles.demo.persistence.BoxRepository;
 import com.candles.demo.utils.BoxDtoConverter;
@@ -51,7 +52,7 @@ public class BoxService {
         boxRepository.deleteById(id);
     }
 
-    public List<BoxDto> searchByPattern(String pattern) {
+    public List<Responsable> searchByPattern(String pattern) {
         return boxRepository.findBoxByPattern(pattern).stream()
                 .map(BoxDtoConverter::toDto)
                 .collect(Collectors.toList());

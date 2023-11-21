@@ -6,6 +6,7 @@ import com.candles.demo.model.Box;
 public class BoxDtoConverter {
     public static BoxDto toDto(Box box) {
         return BoxDto.builder()
+                .id(box.getId())
                 .title(box.getTitle())
                 .name(box.getName())
                 .wick(box.getWick())

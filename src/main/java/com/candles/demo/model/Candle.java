@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import java.util.List;
 import java.math.BigDecimal;
 
 @Data
@@ -26,6 +26,7 @@ public class Candle {
     private String description;
     private String containerColor;
     private String warColor;
+    private List<Candle> similarCandles;
 }
 //
 //id: 1,
