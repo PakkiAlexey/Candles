@@ -19,14 +19,7 @@ public class BoxDto implements Responsable{
     private String volume;
     private BigDecimal price;
     private String description;
-
-    public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
-        List<Integer> list1 = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
-
-        Collections.addAll(list);
-        Collections.addAll(list1);
-    }
+    private String slug;
 }
 
 

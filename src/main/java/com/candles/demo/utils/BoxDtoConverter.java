@@ -13,6 +13,7 @@ public class BoxDtoConverter {
                 .volume(box.getVolume())
                 .price(box.getPrice())
                 .description(box.getDescription())
+                .slug("/boxes")
                 .build();
     }
 

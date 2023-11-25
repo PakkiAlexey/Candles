@@ -20,4 +20,5 @@ public class CandleDto implements Responsable {
     private String description;
     private String containerColor;
     private String warColor;
+    private String slug;
 }

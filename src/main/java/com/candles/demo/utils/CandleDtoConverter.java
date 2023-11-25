@@ -21,6 +21,7 @@ public class CandleDtoConverter {
                 .description(candle.getDescription())
                 .containerColor(candle.getContainerColor())
                 .warColor(candle.getWarColor())
+                .slug("/candles/" + candle.getWax())
                 .build();
     }
 
