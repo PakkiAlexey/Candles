@@ -1,12 +1,18 @@
 package com.candles.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.util.List;
+import org.springframework.hateoas.Link;
+
 import java.math.BigDecimal;
+import java.sql.Blob;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,29 +23,29 @@ public class Candle {
     private String id;
     private String title;
     private String name;
-    private String aroma;
     private String wax;
+    private String slug;
+    private Aroma aroma;
     private String wick;
+    private Integer wicks;
     private String container;
     private String volume;
     private BigDecimal price;
     private String description;
     private String containerColor;
     private String warColor;
-    private List<Candle> similarCandles;
+    private List<Blob> images;
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private Link link;
 }
-//
-//id: 1,
-//        title: 'Соєва свічка Чорне море',
-//        name:'Чорне море',
-//        aroma: 'Чорне море',
-//        wax: 'soy coconut palm',
-//        wick: '',
-//        wicks: 1,
-//        container: 'glass',
-//        volume: '280ml',
-//        price: 450,
-//        description: '',
-//        containerColor: '',
-//        waxColor: '',
-//        images: [],
+
+@JsonSerialize
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class Aroma {
+    private String name;
+    private List<String> topNotes;
+    private List<String> baseNotes;
+}

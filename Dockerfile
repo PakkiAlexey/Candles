@@ -1,18 +1,17 @@
-FROM maven:3.8.3-openjdk-11-slim AS build
+FROM maven:3.8.3-openjdk-17 as builder
 
-WORKDIR /app
-
+WORKDIR /workdir
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
-
 COPY src ./src
+
 
 RUN mvn package -DskipTests
 
-FROM adoptopenjdk:11-jre-hotspot
 
-WORKDIR /app
+FROM openjdk:17.0-jdk-slim
 
-COPY --from=build /app/target/*.jar ./app.jar
+COPY --from=builder /workdir/target/*.jar /app.jar
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+CMD ["java" , "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
