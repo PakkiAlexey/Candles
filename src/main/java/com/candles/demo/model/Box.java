@@ -21,12 +21,9 @@ public class Box {
     private String id;
     private String title;
     private String name;
-    private String wick;
     private String volume;
     private BigDecimal price;
     private String description;
-    private List<Box> similarBoxes;
-    @Transient
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private Link link;
+    private Kit kit;
+    private String image;
 }

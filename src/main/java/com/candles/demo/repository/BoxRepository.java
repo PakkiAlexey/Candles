@@ -9,7 +9,9 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
 import org.springframework.data.querydsl.binding.QuerydslBindings;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "boxes", path = "boxes")
@@ -27,5 +29,8 @@ public interface BoxRepository extends MongoRepository<Box, String>, QuerydslPre
         // Make case-insensitive 'like' filter for all string properties
         bindings.bind(String.class).first((StringPath path, String value) -> path.containsIgnoreCase(value));
     }
-
+    @RestResource(exported = false)
+    List<Box> findAllByPrice(BigDecimal price);
+    @RestResource(exported = false)
+    List<Box> findAllByVolume(String volume);
 }

@@ -33,19 +33,7 @@ public class Candle {
     private BigDecimal price;
     private String description;
     private String containerColor;
-    private String warColor;
-    private List<Blob> images;
-    @Transient
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private Link link;
+    private String waxColor;
+    private String image;
 }
 
-@JsonSerialize
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class Aroma {
-    private String name;
-    private List<String> topNotes;
-    private List<String> baseNotes;
-}
