@@ -1,7 +1,6 @@
 package com.candles.demo.controller;
 
 import com.candles.demo.model.Box;
-import com.candles.demo.model.Candle;
 import com.candles.demo.repository.BoxRepository;
 import com.candles.demo.service.FileService;
 import com.fasterxml.jackson.databind.ObjectMapper;
